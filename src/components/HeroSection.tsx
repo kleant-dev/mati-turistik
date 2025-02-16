@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
+import { Button } from "./ui/button";
+import { LucideArrowRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
     <section
-      className="h-[460px] w-full relative flex pt-[60px] justify-center"
+      className="h-[600px] w-full relative flex pt-[60px] justify-center"
       style={{
-        backgroundImage: "url(/background.jpg)",
+        backgroundImage: "url(/images/background.jpg)",
         backgroundPosition: "bottom",
       }}
     >
@@ -28,6 +30,9 @@ export const HeroSection = () => {
           Zbulo bukuritë e Matit. <br />
           Udhëtim, Aventurë <br /> Eksperienca të paharrueshme.
         </div>
+        <Button variant="outline" size="lg" className="text-purple ">
+          Rezervoni tourin tuaj <LucideArrowRight className="mb-[-2px]" />
+        </Button>
       </div>
     </section>
   );

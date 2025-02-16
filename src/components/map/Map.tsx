@@ -2,13 +2,11 @@
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import { Marker, Popup } from "react-leaflet";
-import { LatLngExpression } from "leaflet";
-import L from "leaflet";
 import { matGeoJSON } from "../../../public/data/mat";
 import { klosGeoJSON } from "../../../public/data/klos";
 import { mergeGeoJSON } from "@/utils/mergeGeoJSON";
-import { bridgeIcon } from "./icons";
-import { bridges } from "./destinations";
+import { icons } from "./icons";
+import { destinations } from "./destinations";
 import Image from "next/image";
 
 const MapContainer = dynamic(
@@ -24,16 +22,6 @@ const GeoJSON = dynamic(
   { ssr: false }
 );
 
-const defaultIcon = new L.Icon({
-  iconUrl: "/ulez1.jpg", // Path to the default marker icon
-  iconRetinaUrl: "/ulez1.jpg", // Path to the retina marker icon
-  shadowUrl: "/ulez1.jpg", // Path to the marker shadow
-  iconSize: [25, 41], // Size of the icon
-  iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-  popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
-  shadowSize: [41, 41], // Size of the shadow
-});
-
 const mergedGeoJSON = mergeGeoJSON(matGeoJSON, klosGeoJSON);
 
 const districtStyle = {
@@ -45,7 +33,6 @@ const districtStyle = {
 };
 
 export const Map = () => {
-  const position: LatLngExpression = [41.59, 20];
   return (
     <MapContainer
       center={[41.59, 20]}
@@ -60,16 +47,21 @@ export const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <GeoJSON data={mergedGeoJSON} style={districtStyle} />
-      {bridges.map((bridge) => {
+      {destinations.map((destination) => {
         return (
           <Marker
-            position={bridge.position}
-            icon={bridgeIcon}
-            key={bridge.title}
+            position={destination.position}
+            icon={icons[destination.type]}
+            key={destination.title}
           >
             <Popup>
-              <Image src="/ulez1.jpg" alt="Ura" width={300} height={80} />
-              {bridge.title} <br /> {bridge.description}
+              <Image
+                src={destination.image}
+                alt={destination.title}
+                width={300}
+                height={80}
+              />
+              {destination.title} <br /> {destination.description}
             </Popup>
           </Marker>
         );

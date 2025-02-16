@@ -35,5 +35,5 @@ export const mergeGeoJSON = (geoJSON1: geoJSONType, geoJSON2: geoJSONType) => {
       ...geoJSON1.features, // Spread features from the first GeoJSON
       ...geoJSON2.features, // Spread features from the second GeoJSON
     ],
-  };
+  } as const;
 };

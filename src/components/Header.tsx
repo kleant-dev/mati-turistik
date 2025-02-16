@@ -3,7 +3,7 @@ import { LucideMap, LucideCloudSun } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="h-[70px] flex items-center justify-between bg-bgColor px-[22px]">
+    <header className="h-[70px] sticky top-[0] z-[9999999999] flex items-center justify-between bg-bgColor px-[22px]">
       <Link href="/">
         <span className="font-sirin text-4xl text-purple">MATI TURISTIK</span>
       </Link>
