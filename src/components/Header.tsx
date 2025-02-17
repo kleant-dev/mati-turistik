@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="h-[70px] sticky  w-full top-[0] z-[9999999999] flex items-center justify-between bg-bgColor px-[22px]">
       <Link href="/">
-        <span className="font-sirin text-4xl text-purple">MATI TURISTIK</span>
+        <span className="font-sirin text-4xl text-purple">EXPLORE MATI</span>
       </Link>
       <div className="hidden md:inline relative">
         <LucideHome stroke="white" className="" />
