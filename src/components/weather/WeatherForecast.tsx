@@ -73,17 +73,16 @@ export interface WeatherForecastResponseType {
 }
 
 export const WeatherForecast = ({ data }: { data: ForecastItem[] }) => {
-  console.log(data);
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full md:w-[60%] flex flex-col gap-4">
       {data.map((forecast) => (
         <ForecastCard
           key={forecast.dt}
           description={forecast.weather[0].description}
           dt_txt={forecast.dt_txt}
           icon={forecast.weather[0].icon}
-          tempMax={forecast.main.temp_max}
-          tempMin={forecast.main.temp_min}
+          temp={forecast.main.temp}
+          wind={forecast.wind.speed}
         />
       ))}
     </div>

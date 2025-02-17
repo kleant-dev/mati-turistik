@@ -1,10 +1,20 @@
-import { SharedLayoutAnimation } from "./Shared";
+"use client";
+
+import { ExperienceTabs } from "./ExperienceTabs";
+import Sparkles from "./Sparkles";
 
 export const ExperiencesSection = () => {
   return (
-    <section className="w-full bg-bgColor pt-[64px] px-6 flex flex-col gap-8">
-      <h2 className="text-2xl text-center text-white font-bold">Eksperienca</h2>
-      <SharedLayoutAnimation />
+    <section
+      id="experiences"
+      className="w-full bg-bgColor pt-[82px] px-6 flex flex-col gap-10"
+    >
+      <Sparkles>
+        <h2 className="text-2xl text-center text-white font-bold">
+          Eksperienca
+        </h2>
+      </Sparkles>
+      <ExperienceTabs />
     </section>
   );
 };

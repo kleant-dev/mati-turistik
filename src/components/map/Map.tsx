@@ -8,6 +8,7 @@ import { mergeGeoJSON } from "@/utils/mergeGeoJSON";
 import { icons } from "./icons";
 import { destinations } from "./destinations";
 import Image from "next/image";
+import "leaflet-loading";
 
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
@@ -39,8 +40,11 @@ export const Map = () => {
       zoom={11.4}
       scrollWheelZoom={true}
       id="map"
+      // @ts-expect-error "loading"
+      loadingControl={true}
       attributionControl={false}
       style={{ height: "100vh", width: "100%" }}
+      className="border-2 border-green-400"
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -61,7 +65,8 @@ export const Map = () => {
                 width={300}
                 height={80}
               />
-              {destination.title} <br /> {destination.description}
+              <p className="text-center font-semibold ">{destination.title}</p>
+              <br /> {destination.description}
             </Popup>
           </Marker>
         );

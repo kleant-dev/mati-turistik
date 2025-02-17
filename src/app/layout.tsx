@@ -3,6 +3,7 @@ import { Alata, Sirin_Stencil } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import Head from "next/head";
+import { Footer } from "@/components/Footer";
 
 const alata = Alata({
   variable: "--font-alata",
@@ -44,10 +45,11 @@ export default function RootLayout({
         ></script>
       </Head>
       <body
-        className={` ${alata.variable} ${sirinStencil.variable} antialiased`}
+        className={` ${alata.variable} ${sirinStencil.variable} antialiased `}
       >
         <Header></Header>
-        <main className="w-[100%] h-[100%]">{children}</main>
+        <main className="">{children}</main>
+        <Footer></Footer>
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
+import { CtaSection } from "@/components/CtaSection";
 import { DestinationsSection } from "@/components/DestinationsSection";
 import { ExperiencesSection } from "@/components/ExperiencesSection";
 import { HeroSection } from "@/components/HeroSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 const Home = () => {
   return (
@@ -8,6 +10,8 @@ const Home = () => {
       <HeroSection />
       <DestinationsSection />
       <ExperiencesSection />
+      <TestimonialsSection />
+      <CtaSection />
     </div>
   );
 };

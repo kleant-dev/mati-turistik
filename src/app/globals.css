@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~leaflet-loading/src/Control.Loading.css";
 
 body {
   font-family: "Alata", Arial, Helvetica, sans-serif;
@@ -11,6 +12,10 @@ body,
 html {
   height: 100%;
   width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @theme {

@@ -29,6 +29,9 @@ importers:
       leaflet:
         specifier: ^1.9.4
         version: 1.9.4
+      leaflet-loading:
+        specifier: ^0.1.24
+        version: 0.1.24
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.0.0)
@@ -47,9 +50,15 @@ importers:
       react-leaflet:
         specifier: 5.0.0-rc.2
         version: 5.0.0-rc.2(leaflet@1.9.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-multi-carousel:
+        specifier: ^2.8.5
+        version: 2.8.5
       react-simple-typewriter:
         specifier: ^5.0.1
         version: 5.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-spinners:
+        specifier: ^0.15.0
+        version: 0.15.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.0.1
@@ -1275,6 +1284,9 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
+  leaflet-loading@0.1.24:
+    resolution: {integrity: sha512-svOFGs01hbjJpRVY6L6HpaQeLuHIFOmXtGARg3cUzH/lYu2xpRtkYScmDgsQa4vUw4qKS0XvZck0u1E/rRliQQ==}
+
   leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
 
@@ -1571,12 +1583,22 @@ packages:
       react: ^19.0.0
       react-dom: ^19.0.0
 
+  react-multi-carousel@2.8.5:
+    resolution: {integrity: sha512-C5DAvJkfzR2JK9YixZ3oyF9x6R4LW6nzTpIXrl9Oujxi4uqP9SzVVCjl+JLM3tSdqdjAx/oWZK3dTVBSR73Q+w==}
+    engines: {node: '>=8'}
+
   react-simple-typewriter@5.0.1:
     resolution: {integrity: sha512-vA5HkABwJKL/DJ4RshSlY/igdr+FiVY4MLsSQYJX6FZG/f1/VwN4y1i3mPXRyfaswrvI8xii1kOVe1dYtO2Row==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
+
+  react-spinners@0.15.0:
+    resolution: {integrity: sha512-ZO3/fNB9Qc+kgpG3SfdlMnvTX6LtLmTnOogb3W6sXIaU/kZ1ydEViPfZ06kSOaEsor58C/tzXw2wROGQu3X2pA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
@@ -3226,6 +3248,8 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
+  leaflet-loading@0.1.24: {}
+
   leaflet@1.9.4: {}
 
   levn@0.4.1:
@@ -3497,7 +3521,14 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  react-multi-carousel@2.8.5: {}
+
   react-simple-typewriter@5.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  react-spinners@0.15.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)

@@ -12,17 +12,19 @@ export const ExperienceItem = ({
   label,
 }: ExperienceItemProps) => {
   return (
-    <figure className="flex  gap-4 items-start">
-      <Image
-        src={image}
-        alt={label}
-        width={150}
-        height={106}
-        className="object-cover aspect-[150,200] flex-grow-0"
-      />
+    <figure className="flex gap-4 items-start rounded overflow-hidden">
+      <div className="w-[150px] h-[106px] flex-shrink-0">
+        <Image
+          src={image}
+          alt={label}
+          width={150}
+          height={106}
+          className="object-cover rounded "
+        />
+      </div>
       <figcaption className="text-white ">
-        <p className="font-semibold">{label}</p>
-        <p className="text-sm">{description}</p>
+        <p className="font-semibold text-yellow-400 md:text-lg">{label}</p>
+        <p className="text-sm md:text-base">{description}</p>
       </figcaption>
     </figure>
   );

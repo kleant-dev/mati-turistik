@@ -1,62 +1,75 @@
+"use client";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "./ui/carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { Card, CardContent, CardHeader } from "./ui/card";
 
 const destinations = [
   {
     id: 1,
-    title: "Ura e Vashes",
-    location: "Klos",
-    src: "/uravashes.jpg",
+    title: "Parku Kombëtar",
+    location: "Ulëz",
+    src: "/images/ulez.jpg",
   },
   {
     id: 2,
-    title: "Parku Kombetar",
-    location: "Ulez",
-    src: "/ulez1.jpg",
+    title: "Parku Kombëtar",
+    location: "Gjoçaj",
+    src: "/images/gjocaj.jpeg",
   },
   {
     id: 3,
-    title: "Parku Kombetar",
-    location: "Gjoçaj",
-    src: "/gjocaj.jpeg",
+    title: "Ura e Vashës",
+    location: "Klos",
+    src: "/images/uravashes.jpg",
   },
 ];
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
 
 export const DestinationCarousel = () => {
   return (
     <div className="">
-      <Carousel className="relative">
-        <CarouselContent className="ml-[60px]">
-          {destinations.map(({ id, title, location, src }) => (
-            <CarouselItem key={id}>
-              <figure className="w-[282px] h-[318px] bg-[#1E1E1E]">
+      <Carousel responsive={responsive}>
+        {destinations.map(({ id, title, location, src }) => (
+          <Card
+            key={id}
+            className="bg-transparent text-white border-none mx-6 rounded-md flex flex-col items-center"
+          >
+            <figure className="">
+              <CardHeader>
                 <Image
                   src={src}
                   alt={title}
                   width={282}
                   height={212}
-                  className="w-[282px] h-[212px]"
+                  className="w-[282px] h-[212px] rounded-md"
                 />
-                <figcaption className="text-white text-2xl pl-4 pt-2">
+              </CardHeader>
+              <CardContent>
+                <figcaption className="text-white text-2xl text-left">
                   {title} <br />
                   {location}
                 </figcaption>
-              </figure>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="absolute right-[64px] top-0 bottom-0 ">
-          <CarouselNext />
-        </div>
-        <div className="absolute left-[64px] top-0 bottom-0 ">
-          <CarouselPrevious />
-        </div>
+              </CardContent>
+            </figure>
+          </Card>
+        ))}
       </Carousel>
     </div>
   );

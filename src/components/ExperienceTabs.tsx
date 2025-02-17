@@ -5,15 +5,15 @@ import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import { useState } from "react";
-import { ExperienceBlock } from "./ExperienceBlock";
+import { ExperienceBlock, experiences } from "./ExperienceBlock";
 
-export function SharedLayoutAnimation() {
+export function ExperienceTabs() {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <div className="w-full bg-bgColor flex flex-col gap-4">
-      <nav className="bg-bgColor px-1.5 pt-1.5 rounded-t-lg ">
-        <ul className="flex w-full px-8 m-0 font-medium text-sm">
+    <div className="w-full bg-bgColor flex flex-col gap-8">
+      <nav className="bg-bgColor px-1.5 pt-1.5 rounded-t-lg  ">
+        <ul className="flex w-full m-0 font-medium text-sm">
           {tabs.map((item) => (
             <motion.li
               key={item.label}
@@ -49,7 +49,14 @@ export function SharedLayoutAnimation() {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            {selectedTab ? <ExperienceBlock /> : "😋"}
+            {selectedTab ? (
+              <ExperienceBlock
+                selectedExperience={selectedTab.content}
+                experienceLabel={selectedTab.label}
+              />
+            ) : (
+              "😋"
+            )}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -57,14 +64,18 @@ export function SharedLayoutAnimation() {
   );
 }
 
-/**
- * ==============   Data   ================
- */
-
 const allIngredients = [
-  { iconSrc: "/eat.png", label: "Gastronomi" },
-  { iconSrc: "/culture.jpg", label: "Kulture" },
-  { iconSrc: "/coconut.png", label: "Argetim" },
+  { iconSrc: "/eat.png", label: "Gastronomi", content: experiences.gastronomy },
+  {
+    iconSrc: "/culture.jpg",
+    label: "Kulturë",
+    content: experiences.culture,
+  },
+  {
+    iconSrc: "/coconut.png",
+    label: "Argëtim",
+    content: experiences.leisure,
+  },
 ];
 
 const [gastronomy, culture, leisure] = allIngredients;
