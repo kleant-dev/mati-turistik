@@ -48,7 +48,7 @@ export const CtaSection = () => {
         <li className="flex items-start gap-2">
           <LucideBadgeCheck className="stroke-green-400 " />
           <p className="text-white">
-            Udhërrëfyes lokalë me njohuri të thella për rajonin.
+            Transport i organizuar dhe i rehatshëm për të gjithë udhëtimin tuaj.
           </p>
         </li>
       </ul>
