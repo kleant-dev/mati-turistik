@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+Transport i organizuar dhe i rehatshëm për të gjithë udhëtimin tuaj.
 export const Footer = () => {
   return (
     <footer className="pt-[20px] bg-bgColor border-t-2">
@@ -12,7 +12,7 @@ export const Footer = () => {
         <div className="flex flex-col gap-2 ">
           <Link href="/#destinations">Destinacione</Link>
           <Link href="/#experiences">Eksperienca</Link>
-          <Link href="/#testimonials">Deshmite e klienteve</Link>
+          <Link href="/#testimonials">Dëshmitë e klientëve</Link>
         </div>
         <div className="flex flex-col gap-2 ">
           <Link href="/harta">Harta turistike</Link>
