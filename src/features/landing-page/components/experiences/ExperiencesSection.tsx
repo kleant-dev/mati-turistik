@@ -1,7 +1,7 @@
 "use client";
 
 import { ExperienceTabs } from "./ExperienceTabs";
-import Sparkles from "./Sparkles";
+import Sparkles from "@/components/ui/Sparkles";
 
 export const ExperiencesSection = () => {
   return (

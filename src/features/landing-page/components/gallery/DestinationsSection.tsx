@@ -1,6 +1,6 @@
 "use client";
 import { DestinationCarousel } from "./DestinationsCarousel";
-import Sparkles from "./Sparkles";
+import Sparkles from "@/components/ui/Sparkles";
 
 export const DestinationsSection = () => {
   return (

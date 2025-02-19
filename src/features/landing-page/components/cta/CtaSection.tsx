@@ -1,6 +1,6 @@
 import { LucideArrowBigRightDash, LucideBadgeCheck } from "lucide-react";
-import GlowingButton from "./GlowingButton";
 import Image from "next/image";
+import CtaGlowingButton from "./CtaGlowingButton";
 
 export const CtaSection = () => {
   return (
@@ -93,7 +93,7 @@ export const CtaSection = () => {
           </li>
         </ul>
       </div>
-      <GlowingButton />
+      <CtaGlowingButton>Rezervoni tani</CtaGlowingButton>
     </section>
   );
 };

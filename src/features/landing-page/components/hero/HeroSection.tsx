@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import Link from "next/link";
-import { prefilledText } from "./GlowingButton";
+import { prefilledText } from "@/features/map/landing-page/components/cta/CtaGlowingButton";
 
 export const HeroSection = () => {
   return (

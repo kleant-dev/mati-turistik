@@ -2,28 +2,9 @@
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { destinations } from "@/features/landing-page/data/destinations";
 
-const destinations = [
-  {
-    id: 1,
-    title: "Parku Kombëtar",
-    location: "Ulëz",
-    src: "/images/ulez.jpg",
-  },
-  {
-    id: 2,
-    title: "Parku Kombëtar",
-    location: "Gjoçaj",
-    src: "/images/gjocaj.jpeg",
-  },
-  {
-    id: 3,
-    title: "Ura e Vashës",
-    location: "Klos",
-    src: "/images/uravashes.jpg",
-  },
-];
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },

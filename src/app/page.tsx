@@ -1,8 +1,8 @@
-import { CtaSection } from "@/components/CtaSection";
-import { DestinationsSection } from "@/components/DestinationsSection";
-import { ExperiencesSection } from "@/components/ExperiencesSection";
-import { HeroSection } from "@/components/HeroSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { CtaSection } from "@/features/landing-page/components/cta/CtaSection";
+import { DestinationsSection } from "@/features/landing-page/components/gallery/DestinationsSection";
+import { ExperiencesSection } from "@/features/landing-page/components/experiences/ExperiencesSection";
+import { HeroSection } from "@/features/landing-page/components/hero/HeroSection";
+import { TestimonialsSection } from "@/features/landing-page/components/testimonials/TestimonialsSection";
 
 const Home = () => {
   return (

@@ -1,11 +1,11 @@
 "use client";
-
 import clsx from "clsx";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import { useState } from "react";
-import { ExperienceBlock, experiences } from "./ExperienceBlock";
+import { ExperienceBlock } from "./ExperienceBlock";
+import { experiences } from "@/features/landing-page/data/experiences";
 
 export function ExperienceTabs() {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
