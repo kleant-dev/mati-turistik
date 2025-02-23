@@ -1,7 +1,7 @@
 "use client";
 import { WeatherSummaryResponseType } from "./Weather";
 import Image from "next/image";
-import { Separator } from "../ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { capitalize } from "@/utils/capitalize";
 import { useEffect, useState } from "react";
 

@@ -1,13 +1,13 @@
 import {
   Weather,
   WeatherSummaryResponseType,
-} from "@/components/weather/Weather";
+} from "@/features/weather/components/Weather";
 import {
   WeatherForecast,
   WeatherForecastResponseType,
-} from "@/components/weather/WeatherForecast";
-import { WeatherSummary } from "@/components/weather/WeatherSummary";
-import { coordinates } from "@/data/weatherCoordinates";
+} from "@/features/weather/components/WeatherForecast";
+import { WeatherSummary } from "@/features/weather/components/WeatherSummary";
+import { coordinates } from "@/features/weather/constants";
 import axios, { AxiosResponse } from "axios";
 
 const MotiPage = async () => {

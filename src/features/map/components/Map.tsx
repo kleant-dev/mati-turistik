@@ -2,11 +2,11 @@
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import { Marker, Popup } from "react-leaflet";
-import { matGeoJSON } from "../../../public/data/mat";
-import { klosGeoJSON } from "../../../public/data/klos";
+import { matGeoJSON } from "../../../../public/data/mat";
+import { klosGeoJSON } from "../../../../public/data/klos";
 import { mergeGeoJSON } from "@/utils/mergeGeoJSON";
-import { icons } from "./icons";
-import { destinations } from "./destinations";
+import { icons } from "../data/icons";
+import { destinations } from "../data/destinations";
 import Image from "next/image";
 import "leaflet-loading";
 
@@ -44,7 +44,7 @@ export const Map = () => {
       loadingControl={true}
       attributionControl={false}
       style={{ height: "100vh", width: "100%" }}
-      className="border-2 border-green-400"
+      className="border-2 border-green-400 z-[1]"
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import Head from "next/head";
 import { Footer } from "@/components/Footer";
+import ClientProviders from "@/components/ClientProviders";
 
 const alata = Alata({
   variable: "--font-alata",
@@ -45,11 +46,13 @@ export default function RootLayout({
         ></script>
       </Head>
       <body
-        className={` ${alata.variable} ${sirinStencil.variable} antialiased `}
+        className={` ${alata.variable} ${sirinStencil.variable} antialiased flex flex-col`}
       >
-        <Header></Header>
-        <main className="">{children}</main>
-        <Footer></Footer>
+        <ClientProviders>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ClientProviders>
       </body>
     </html>
   );

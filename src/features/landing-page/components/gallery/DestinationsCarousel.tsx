@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -19,14 +18,20 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1, // optional, default to 1.
+    slidesToSlide: 1,
+    // optional, default to 1.
   },
 };
 
 export const DestinationCarousel = () => {
   return (
     <div className="">
-      <Carousel responsive={responsive}>
+      <Carousel
+        showDots={true}
+        containerClass="carousel-container z-[1] "
+        ssr={true}
+        responsive={responsive}
+      >
         {destinations.map(({ id, title, location, src }) => (
           <Card
             key={id}

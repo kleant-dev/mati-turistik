@@ -3,11 +3,6 @@ import { LucideArrowRight } from "lucide-react";
 import Link from "next/link";
 import { RefAttributes } from "react";
 
-export const prefilledText = `
-Përshëndetje,
-
-unë jam i interesuar të rezervoj një tur . Ju lutem më informoni nëse ka disponibilitet për datën ___ dhe sa është çmimi për person.`;
-
 type CtaGlowingButtonProps = {
   children: React.ReactNode;
   props?: ButtonProps & RefAttributes<HTMLButtonElement>;
@@ -32,10 +27,7 @@ const CtaGlowingButton = ({ children, ...props }: CtaGlowingButtonProps) => {
         className="text-black font-bold text-lg ring-4 ring-gold relative z-10 bg-white hover:bg-gray-100 w-full"
         {...props}
       >
-        <Link
-          className="flex items-center gap-2"
-          href={`https://wa.me/+355676774668?text=${prefilledText}`}
-        >
+        <Link className="flex items-center gap-2" href="/new-reservation">
           {children} <LucideArrowRight className="mb-[-2px]" />
         </Link>
       </Button>

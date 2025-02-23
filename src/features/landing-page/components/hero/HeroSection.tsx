@@ -5,7 +5,6 @@ import { Typewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import Link from "next/link";
-import { prefilledText } from "@/features/map/landing-page/components/cta/CtaGlowingButton";
 
 export const HeroSection = () => {
   return (
@@ -39,7 +38,7 @@ export const HeroSection = () => {
           size="lg"
           className="text-purple text-lg"
         >
-          <Link href={`https://wa.me/+355676774668?text=${prefilledText}`}>
+          <Link href="/new-reservation">
             Rezervoni tourin tuaj <LucideArrowRight className="mb-[-2px]" />
           </Link>
         </Button>

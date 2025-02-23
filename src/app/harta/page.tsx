@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 
 const Map = dynamic(
-  () => import("@/components/map/Map").then((mod) => mod.Map),
+  () => import("@/features/map/components/Map").then((mod) => mod.Map),
   { ssr: false }
 );
 
