@@ -57,7 +57,10 @@ export const AdminSettings = ({
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className=" flex flex-col space-y-8"
+      >
         <FormField
           control={form.control}
           name="maxPersons"
@@ -144,7 +147,9 @@ export const AdminSettings = ({
         </div>
         <FormError error={error} />
         <FormSuccess success={success} />
-        <Button type="submit">Save changes</Button>
+        <Button type="submit" className="">
+          Save changes
+        </Button>
       </form>
     </Form>
   );

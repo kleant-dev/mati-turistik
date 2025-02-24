@@ -18,10 +18,12 @@ export const ConfirmDialog = ({
   formData,
   isOpen,
   closeDialog,
+  maxPersons,
 }: {
-  formData: z.infer<typeof ReservationSchema>;
+  formData: z.infer<ReturnType<typeof ReservationSchema>>;
   isOpen: boolean;
   closeDialog: () => void;
+  maxPersons: number;
 }) => {
   const { totalPrice, telephone, endDate, numberOfPersons, startDate } =
     formData;
@@ -29,17 +31,20 @@ export const ConfirmDialog = ({
   const [isPending, startTransition] = useTransition();
 
   const formatDate = (date: Date) => {
-    return date.toLocaleString("en-GB", {
+    return date?.toLocaleString("en-GB", {
       dateStyle: "medium",
     });
   };
 
   function onSubmit() {
     startTransition(async () =>
-      addReservation({
-        ...formData,
-        numberOfPersons: Number(formData.numberOfPersons),
-      }).then((data) => {
+      addReservation(
+        {
+          ...formData,
+          numberOfPersons: Number(formData.numberOfPersons),
+        },
+        maxPersons
+      ).then((data) => {
         if (data.success) {
           toast.success(data.success);
         }

@@ -35,13 +35,12 @@ const month = today.getMonth();
 const year = today.getFullYear();
 const tomorrow = new Date(year, month, day);
 
-// export const endDate = new Date(year, month, day + 7);
-
 export function ReservationForm() {
   const [pricePerPerson, setPricePerPerson] = useState<number | null>(null);
   const [endDate, setEndDate] = useState<Date>(new Date(year, month, day + 1));
   const [showConfirmDialog, setShowConfirmDialog] = useState<boolean>(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [maxPersons, setMaxPersons] = useState(0);
 
   useEffect(() => {
     async function getReservationSettings() {
@@ -72,6 +71,9 @@ export function ReservationForm() {
               new Date(year, month, day + result.data.maxReservationDuration)
             );
           }
+          if (result.data.maxPersons) {
+            setMaxPersons(result.data.maxPersons);
+          }
         } else {
           console.error("No data found in response:", result);
         }
@@ -83,39 +85,43 @@ export function ReservationForm() {
     getReservationSettings();
   }, []);
 
-  const form = useForm<z.infer<typeof ReservationSchema>>({
-    resolver: zodResolver(ReservationSchema),
+  const form = useForm<z.infer<ReturnType<typeof ReservationSchema>>>({
+    resolver: zodResolver(ReservationSchema(maxPersons)),
     defaultValues: {
       startDate: tomorrow,
       endDate: endDate,
       telephone: "",
-      numberOfPersons: 2,
+      numberOfPersons: 0,
       totalPrice: 0,
     },
   });
 
+  console.log("Start Date (before submission):", form.watch("startDate"));
+  console.log("End Date (before submission):", form.watch("endDate"));
+
   const selectedStartDate = form.watch("startDate");
 
   useEffect(() => {
-    const selectedStartDateYear = selectedStartDate.getFullYear();
-    const selectedStartDateMonth = selectedStartDate.getMonth();
-    const selectedStartDateDay = selectedStartDate.getDate();
+    if (!selectedStartDate) return;
+
     setEndDate(
       new Date(
-        selectedStartDateYear,
-        selectedStartDateMonth,
-        selectedStartDateDay + 7
+        selectedStartDate.getFullYear(),
+        selectedStartDate.getMonth(),
+        selectedStartDate.getDate() + 7
       )
     );
-  }, [selectedStartDate]);
-  // const selectedStartDateYear = selectedStartDate.getFullYear();
-  // const selectedStartDateMonth = selectedStartDate.getMonth();
-  // const selectedStartDateDay = selectedStartDate.getDate();
-  // const endDate = new Date(
-  //   selectedStartDateYear,
-  //   selectedStartDateMonth,
-  //   selectedStartDateDay + 7
-  // );
+
+    // Update form state when `endDate` is recalculated
+    form.setValue(
+      "endDate",
+      new Date(
+        selectedStartDate.getFullYear(),
+        selectedStartDate.getMonth(),
+        selectedStartDate.getDate() + 7
+      )
+    );
+  }, [selectedStartDate, form]);
 
   function closeDialog() {
     setShowConfirmDialog(false);
@@ -126,8 +132,8 @@ export function ReservationForm() {
       pricePerPerson! *
         form.watch("numberOfPersons") *
         Math.floor(
-          (form.watch("endDate").getTime() -
-            form.watch("startDate").getTime()) /
+          (form.watch("endDate")?.getTime() -
+            form.watch("startDate")?.getTime()) /
             (1000 * 60 * 60 * 24)
         )
     );
@@ -234,12 +240,13 @@ export function ReservationForm() {
                 <Input
                   type="number"
                   {...field}
-                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(value === "" ? value : Number(value));
+                  }}
                 />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>Max is {maxPersons}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -254,7 +261,7 @@ export function ReservationForm() {
                 <Input type="text" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name.
+                Make sure to include your country prefix
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -291,8 +298,8 @@ export function ReservationForm() {
                 pricePerPerson! *
                   form.watch("numberOfPersons") *
                   Math.floor(
-                    (form.watch("endDate").getTime() -
-                      form.watch("startDate").getTime()) /
+                    (form.watch("endDate")?.getTime() -
+                      form.watch("startDate")?.getTime()) /
                       (1000 * 60 * 60 * 24)
                   ) || 0
               ).toFixed(2)}
@@ -307,6 +314,7 @@ export function ReservationForm() {
         <ConfirmDialog
           formData={{ ...form.getValues(), totalPrice }}
           isOpen={showConfirmDialog}
+          maxPersons={maxPersons}
           closeDialog={closeDialog}
         />
       </form>

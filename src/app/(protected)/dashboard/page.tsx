@@ -14,6 +14,7 @@ export type ReservationWithUser = {
   startDate: Date;
   id: string;
   endDate: Date;
+  regTime: Date;
   numberOfPersons: number;
   telephone: string;
   additionalMessage: string | null;
@@ -39,6 +40,7 @@ const DashboardPage = async () => {
       numberOfPersons: true,
       telephone: true,
       totalPrice: true,
+      regTime: true,
       status: true,
       User: {
         select: {
@@ -46,6 +48,9 @@ const DashboardPage = async () => {
           email: true,
         },
       },
+    },
+    orderBy: {
+      startDate: "asc",
     },
   });
 
@@ -59,19 +64,18 @@ const DashboardPage = async () => {
     ...reservation,
     totalPrice: reservation.totalPrice.toString(),
   }));
-
   return (
-    <div className="px-10 py-10">
+    <div className="px-10 py-10 ">
       <div className=" flex flex-col md:flex-row gap-10">
         <RevenueChart />
         <div className="flex flex-1 justify-center">
-          <div className="flex flex-col  gap-10">
-            <Totals />
+          <div className="flex flex-col gap-10">
+            <Totals reservations={serializedReservations} />
             <AdminSettings settings={serializedSettings} />
           </div>
         </div>
       </div>
-      <Dashboard reservationsWithUsers={serializedReservations} />;
+      <Dashboard reservationsWithUsers={serializedReservations} />
     </div>
   );
 };

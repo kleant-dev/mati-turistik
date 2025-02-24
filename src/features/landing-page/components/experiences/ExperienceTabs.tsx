@@ -12,7 +12,7 @@ export function ExperienceTabs() {
 
   return (
     <div className="w-full bg-bgColor flex flex-col gap-8">
-      <nav className="bg-bgColor px-1.5 pt-1.5 rounded-t-lg  ">
+      <nav className="bg-bgColor px-1.5 pt-1.5 rounded-t-lg pb-6 md:pb-12">
         <ul className="flex w-full m-0 font-medium text-sm">
           {tabs.map((item) => (
             <motion.li
@@ -22,7 +22,7 @@ export function ExperienceTabs() {
                 borderColor: item === selectedTab ? "white" : "",
               }}
               className={clsx(
-                "flex flex-col rounded-t-lg w-full p-2.5 border-2 border-dashed border-opacity-0 cursor-pointer justify-between items-center ",
+                "flex flex-col gap-4 rounded-t-lg w-full p-2.5 border-2 border-dashed border-opacity-0 cursor-pointer justify-between items-center ",
                 {
                   "border-white": item !== selectedTab,
                 }
@@ -35,7 +35,7 @@ export function ExperienceTabs() {
                 height={60}
                 alt={item.label}
               />
-              <p className="text-white">{item.label}</p>
+              <p className="text-white md:text-2xl">{item.label}</p>
             </motion.li>
           ))}
         </ul>

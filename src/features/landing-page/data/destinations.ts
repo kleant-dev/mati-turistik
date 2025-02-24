@@ -19,4 +19,22 @@ export const destinations: DestinationItem[] = [
     location: "Klos",
     src: "/images/uravashes.jpg",
   },
+  {
+    id: 4,
+    title: "Kanioni i Shkopetit",
+    location: "Shkopet",
+    src: "/images/kanionishkopetit.jpg",
+  },
+  {
+    id: 5,
+    title: "Parku i Qafështamës",
+    location: "Qafështamë",
+    src: "/images/parkuqafshtames.jpg",
+  },
+  {
+    id: 5,
+    title: "Parku Geraldinë",
+    location: "Burrel",
+    src: "/images/parkugeraldine.jpg",
+  },
 ];

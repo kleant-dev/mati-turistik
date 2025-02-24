@@ -8,10 +8,12 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      <DestinationsSection />
-      <ExperiencesSection />
-      <TestimonialsSection />
-      <CtaSection />
+      <div className="md:px-8 bg-bgColor">
+        <DestinationsSection />
+        <ExperiencesSection />
+        <TestimonialsSection />
+        <CtaSection />
+      </div>
     </div>
   );
 };

@@ -55,6 +55,7 @@ model Reservations {
   userId            String
   startDate         DateTime @db.Date
   endDate           DateTime @db.Date
+  regTime           DateTime @db.Timestamptz() @default(now())
   numberOfPersons   Int
   telephone         String
   additionalMessage String?

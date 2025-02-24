@@ -26,7 +26,7 @@ export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { data, status } = useSession();
   const isLoggedIn = status === "authenticated";
-  const isAdmin = data?.user.role;
+  const isAdmin = data?.user.role === "ADMIN";
   const closeMenu = () => setIsOpen(false);
   return (
     <div className="md:hidden relative z-[999999999999999999999]">

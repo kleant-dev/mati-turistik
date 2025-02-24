@@ -36,6 +36,7 @@ declare module "next-auth/jwt" {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
+  trustHost: true,
   pages: {
     signIn: "/auth/login",
     error: "/auth/error",
@@ -53,19 +54,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
   callbacks: {
-    async signIn({ user, account }) {
-      // if (account?.provider !== "credentials") {
-      //   return true;
-      // }
+    // async signIn({ user, account }) {
+    //   // if (account?.provider !== "credentials") {
+    //   //   return true;
+    //   // }
 
-      // const existingUser = await getUserById(user.id!);
+    //   // const existingUser = await getUserById(user.id!);
 
-      // Prevent sign in without email verification
-      // if (!existingUser?.emailVerified) {
-      //   return false;
-      // }
-      return true;
-    },
+    //   // Prevent sign in without email verification
+    //   // if (!existingUser?.emailVerified) {
+    //   //   return false;
+    //   // }
+    //   return true;
+    // },
     async session({ token, session }) {
       if (session.user && token.sub) {
         session.user.id = token.sub;

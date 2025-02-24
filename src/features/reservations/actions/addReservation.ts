@@ -6,9 +6,11 @@ import { db } from "@/lib/prisma";
 import { auth } from "@/auth";
 
 export const addReservation = async (
-  fields: z.infer<typeof ReservationSchema>
+  fields: z.infer<ReturnType<typeof ReservationSchema>>,
+  maxPersons: number
 ) => {
-  const validatedFields = ReservationSchema.safeParse(fields);
+  const reservationSchema = ReservationSchema(maxPersons);
+  const validatedFields = reservationSchema.safeParse(fields);
 
   if (!validatedFields.success) {
     return {
@@ -25,10 +27,23 @@ export const addReservation = async (
     };
   }
 
+  const startDate = new Date(
+    data.startDate.getFullYear(),
+    data.startDate.getMonth(),
+    data.startDate.getDate() + 1
+  );
+  const endDate = new Date(
+    data.endDate.getFullYear(),
+    data.endDate.getMonth(),
+    data.endDate.getDate() + 1
+  );
+
   try {
     await db.reservations.create({
       data: {
         ...data,
+        startDate,
+        endDate,
         userId,
       },
     });

@@ -34,7 +34,7 @@ const chartConfig = {
 
 export function RevenueChart() {
   return (
-    <Card className="">
+    <Card className="flex-1">
       <CardHeader>
         <CardTitle>Revenue Chart</CardTitle>
         <CardDescription>September - February 2025</CardDescription>
