@@ -13,6 +13,7 @@ import { ReservationSchema } from "../schema/ReservationSchema";
 import { useTransition } from "react";
 import { addReservation } from "../actions/addReservation";
 import { toast } from "sonner";
+import { formatEUR } from "@/utils/formatEUR";
 
 export const ConfirmDialog = ({
   formData,
@@ -35,6 +36,10 @@ export const ConfirmDialog = ({
       dateStyle: "medium",
     });
   };
+
+  const totalDays = Math.floor(
+    (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+  );
 
   function onSubmit() {
     startTransition(async () =>
@@ -62,29 +67,35 @@ export const ConfirmDialog = ({
           <AlertDialogTitle className="mb-4">
             Are you sure you want to make this reservation?
           </AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
             Start Date :
             <span className="text-black font-medium">
               {formatDate(startDate)}
             </span>
           </AlertDialogDescription>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
             End Date :
             <span className="text-black font-medium">
               {formatDate(endDate)}
             </span>
           </AlertDialogDescription>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
+            Total Days :
+            <span className="text-black font-medium">{totalDays}</span>
+          </AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
             Phone number:{" "}
             <span className="text-black font-medium">{telephone}</span>
           </AlertDialogDescription>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
             Number of persons:{" "}
             <span className="text-black font-medium">{numberOfPersons}</span>
           </AlertDialogDescription>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-base">
             Total price :{" "}
-            <span className="text-black font-medium">{totalPrice}&euro;</span>
+            <span className="text-black font-medium">
+              {formatEUR(totalPrice)}
+            </span>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

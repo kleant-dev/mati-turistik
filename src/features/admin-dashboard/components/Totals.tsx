@@ -12,6 +12,7 @@ export const Totals = ({
     .reduce((prev, cur) => prev + cur, 0);
 
   const totalCustomers = reservations
+    .filter((reservation) => reservation.status === "COMPLETED")
     .map((reservation) => reservation.numberOfPersons)
     .reduce((prev, cur) => prev + cur, 0);
 

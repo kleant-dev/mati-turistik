@@ -96,8 +96,10 @@ export function ReservationForm() {
     },
   });
 
-  console.log("Start Date (before submission):", form.watch("startDate"));
-  console.log("End Date (before submission):", form.watch("endDate"));
+  const numOfDays = Math.floor(
+    (form.watch("endDate")?.getTime() - form.watch("startDate")?.getTime()) /
+      (1000 * 60 * 60 * 24)
+  );
 
   const selectedStartDate = form.watch("startDate");
 
@@ -128,15 +130,7 @@ export function ReservationForm() {
   }
 
   function onSubmit() {
-    setTotalPrice(
-      pricePerPerson! *
-        form.watch("numberOfPersons") *
-        Math.floor(
-          (form.watch("endDate")?.getTime() -
-            form.watch("startDate")?.getTime()) /
-            (1000 * 60 * 60 * 24)
-        )
-    );
+    setTotalPrice(pricePerPerson! * form.watch("numberOfPersons") * numOfDays);
     setShowConfirmDialog(true);
   }
 
@@ -225,7 +219,8 @@ export function ReservationForm() {
                 <FormMessage />
               </FormItem>
               <FormDescription>
-                This is checkout date and its not included
+                Total days: {numOfDays}. End date is checkout date and its not
+                included
               </FormDescription>
             </>
           )}
