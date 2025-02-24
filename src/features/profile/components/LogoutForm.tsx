@@ -1,11 +1,11 @@
 "use client";
 import { logout } from "../actions/logout";
-import { LogoutButton } from "./LogoutButton";
+import { ActionButton } from "./ActionButton";
 
 export const LogoutForm = () => {
   return (
     <form action={logout}>
-      <LogoutButton />
+      <ActionButton>Logout</ActionButton>
     </form>
   );
 };

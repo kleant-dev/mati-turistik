@@ -6,6 +6,8 @@ import StatusDropdown from "./StatusDropdown";
 import { formatEUR } from "@/utils/formatEUR";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { deleteReservation } from "../actions/deleteReservation";
+import { ActionButton } from "@/features/profile/components/ActionButton";
 
 export const columns: ColumnDef<ReservationWithUser>[] = [
   {
@@ -105,5 +107,20 @@ export const columns: ColumnDef<ReservationWithUser>[] = [
         currentStatus={row.original.status}
       />
     ),
+  },
+
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      const reservation = row.original;
+
+      return (
+        <form action={deleteReservation.bind(null, reservation.id)}>
+          <ActionButton variant="destructive" size="sm">
+            Delete
+          </ActionButton>
+        </form>
+      );
+    },
   },
 ];
