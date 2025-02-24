@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-Transport i organizuar dhe i rehatshëm për të gjithë udhëtimin tuaj.
 export const Footer = () => {
   return (
     <footer className="pt-[20px] bg-bgColor border-t-2 justify-self-end">
