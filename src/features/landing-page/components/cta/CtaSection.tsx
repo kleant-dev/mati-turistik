@@ -49,8 +49,8 @@ export const CtaSection = () => {
         </li>
         <li className="flex items-start gap-2">
           <LucideBadgeCheck className="stroke-green-400 " />
-          <p className="text-white md:text-xl">
-            Udhërrëfyes lokalë me njohuri të thella për rajonin.
+          <p className="text-white">
+            Transport i organizuar dhe i rehatshëm për të gjithë udhëtimin tuaj.
           </p>
         </li>
       </ul>
