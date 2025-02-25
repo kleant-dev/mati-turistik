@@ -37,9 +37,10 @@ export const ConfirmDialog = ({
     });
   };
 
-  const totalDays = Math.floor(
-    (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
-  );
+  const totalDays =
+    Math.floor(
+      (endDate?.getTime() - startDate?.getTime()) / (1000 * 60 * 60 * 24)
+    ) | 0;
 
   function onSubmit() {
     startTransition(async () =>

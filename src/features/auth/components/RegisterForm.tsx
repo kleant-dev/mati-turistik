@@ -20,11 +20,13 @@ import { register } from "../actions/register";
 import { FormError } from "./FormError";
 import { FormSuccess } from "./FormSuccess";
 import { PasswordInput } from "./PasswordInput";
+import { useRouter } from "next/navigation";
 
 export function RegisterForm() {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
   const form = useForm<z.infer<typeof RegisterFormSchema>>({
     resolver: zodResolver(RegisterFormSchema),
     defaultValues: {
@@ -41,6 +43,7 @@ export function RegisterForm() {
       const data = await register(values);
       setError(data.error || undefined);
       setSuccess(data.success || undefined);
+      router.push("/auth/login");
     });
   }
 

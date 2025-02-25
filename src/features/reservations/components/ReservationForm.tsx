@@ -96,10 +96,11 @@ export function ReservationForm() {
     },
   });
 
-  const numOfDays = Math.floor(
-    (form.watch("endDate")?.getTime() - form.watch("startDate")?.getTime()) /
-      (1000 * 60 * 60 * 24)
-  );
+  const numOfDays =
+    Math.floor(
+      (form.watch("endDate")?.getTime() - form.watch("startDate")?.getTime()) /
+        (1000 * 60 * 60 * 24)
+    ) | 0;
 
   const selectedStartDate = form.watch("startDate");
 
@@ -166,10 +167,12 @@ export function ReservationForm() {
                   <Calendar
                     mode="single"
                     selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date < tomorrow || date < new Date("1900-01-01")
-                    }
+                    onSelect={(date) => {
+                      if (date) {
+                        field.onChange(date);
+                      }
+                    }}
+                    disabled={(date) => date < tomorrow}
                     initialFocus
                   />
                 </PopoverContent>
@@ -208,7 +211,11 @@ export function ReservationForm() {
                     <Calendar
                       mode="single"
                       selected={field.value}
-                      onSelect={field.onChange}
+                      onSelect={(date) => {
+                        if (date) {
+                          field.onChange(date);
+                        }
+                      }}
                       disabled={(date) =>
                         date > endDate || date <= selectedStartDate
                       }
@@ -253,7 +260,7 @@ export function ReservationForm() {
             <FormItem>
               <FormLabel>Phone Number*</FormLabel>
               <FormControl>
-                <Input type="text" {...field} />
+                <Input type="text" {...field} placeholder="+355681234567" />
               </FormControl>
               <FormDescription>
                 Make sure to include your country prefix
