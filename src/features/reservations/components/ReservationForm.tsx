@@ -28,6 +28,7 @@ import { CalendarIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ReservationSchema } from "../schema/ReservationSchema";
 import { ConfirmDialog } from "./ConfirmDialog";
+import { formatIncompletePhoneNumber } from "libphonenumber-js";
 
 const today = new Date();
 const day = today.getDate() + 1;
@@ -260,7 +261,15 @@ export function ReservationForm() {
             <FormItem>
               <FormLabel>Phone Number*</FormLabel>
               <FormControl>
-                <Input type="text" {...field} placeholder="+355681234567" />
+                <Input
+                  type="text"
+                  {...field}
+                  placeholder="+355 68 123 4567"
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(formatIncompletePhoneNumber(value));
+                  }}
+                />
               </FormControl>
               <FormDescription>
                 Make sure to include your country prefix
