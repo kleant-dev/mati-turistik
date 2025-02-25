@@ -24,14 +24,14 @@ const CtaGlowingButton = ({ children, ...props }: CtaGlowingButtonProps) => {
         variant="link"
         asChild
         size="lg"
-        className="text-black font-bold text-lg ring-4 ring-gold relative z-10 bg-[#ddd] hover:bg-gray-100 w-full"
+        className="text-black font-bold text-lg  relative z-10 bg-[#ddd] hover:bg-gray-100 w-full"
         {...props}
       >
         <Link
           className="flex items-center gap-2 border"
           href="/new-reservation"
         >
-          <p className="flex items-center gap-2 md:text-xl text-teal-600">
+          <p className="flex items-center gap-2 md:text-xl text-purple">
             {children} <LucideArrowRight className="mb-[-2px]" />
           </p>
         </Link>
