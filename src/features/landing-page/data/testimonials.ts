@@ -20,3 +20,24 @@ export const testimonials: TestimonialItem[] = [
     image: "/testimonials/emilycarter.jpg",
   },
 ];
+
+export const etestimonials: TestimonialItem[] = [
+  {
+    name: "Anisa",
+    testimonial:
+      "The journey through Mat was an unforgettable experience! Thank you for the excellent guidance and the interesting stories about the history and culture of this region. I sincerely recommend it to everyone who wants to discover the hidden beauties of Albania. I will return for another adventure!",
+    image: "/testimonials/anisahoxha.jpg",
+  },
+  {
+    name: "Arjan",
+    testimonial:
+      "Mat is a magical place, and this agency helped me discover everything this region has to offer. From the beautiful mountains to the traditional villages, every detail was perfectly organized. An experience I will remember for a long time!",
+    image: "/testimonials/arjanbasha.jpg",
+  },
+  {
+    name: "Emily",
+    testimonial:
+      "Exploring the district of Mat was a wonderful experience! The tour guide made it so easy to plan my trip, and I discovered hidden gems I never knew existed. From the stunning landscapes to the warm hospitality of the locals, everything was perfect. Highly recommend this to anyone visiting Albania!",
+    image: "/testimonials/emilycarter.jpg",
+  },
+];

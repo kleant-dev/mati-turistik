@@ -9,17 +9,17 @@ datasource db {
 }
 
 model User {
-  id            String         @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String         @unique
+  email         String     @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
   password      String?
-  role          UserRole       @default(USER)
+  role          UserRole   @default(USER)
   accounts      Account[]
-  Reservations  Reservations[]
+  Bookings      Bookings[]
 }
 
 model Account {
@@ -50,31 +50,31 @@ model VerificationToken {
   @@id([identifier, token])
 }
 
-model Reservations {
-  id                String    @id @default(cuid())
+model BookingSettings {
+  id                     String  @id(map: "BookingSettings_pkey") @default(cuid())
+  pricePerPerson         Decimal
+  maxPersons             Int
+  maxBookingDuration     Int
+}
+
+model Bookings {
+  id                String            @id(map: "Bookings_pkey") @default(cuid())
   userId            String
-  startDate         DateTime @db.Date
-  endDate           DateTime @db.Date
-  regTime           DateTime @db.Timestamptz() @default(now())
+  startDate         DateTime          @db.Date
+  endDate           DateTime          @db.Date
   numberOfPersons   Int
   telephone         String
   additionalMessage String?
-  totalPrice        Decimal 
-  status            ReservationStatus @default(IN_PROGRESS)
-  User              User?     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  totalPrice        Decimal
+  status            BookingStatus @default(IN_PROGRESS)
+  regTime           DateTime          @default(now()) @db.Timestamptz(6)
+  User              User              @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "Bookings_userId_fkey")
 }
 
-enum ReservationStatus {
+enum BookingStatus {
   IN_PROGRESS
   COMPLETED
   CANCELLED
-}
-
-model ReservationSettings {
-  id                     String @id @default(cuid())
-  pricePerPerson         Decimal
-  maxPersons             Int
-  maxReservationDuration Int    
 }
 
 enum UserRole {

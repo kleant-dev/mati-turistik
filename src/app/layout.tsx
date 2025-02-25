@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Alata, Sirin_Stencil } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/header";
 import Head from "next/head";
-import { Footer } from "@/components/Footer";
-import ClientProviders from "@/components/ClientProviders";
+import { Footer } from "@/components/footer";
+import ClientProviders from "@/components/client-providers";
 
 const alata = Alata({
   variable: "--font-alata",

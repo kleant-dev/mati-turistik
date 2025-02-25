@@ -1,5 +1,5 @@
-import { CardWrapper } from "@/features/auth/components/CardWrapper";
-import { RegisterForm } from "@/features/auth/components/RegisterForm";
+import { CardWrapper } from "@/features/auth/components/card-wrapper";
+import { RegisterForm } from "@/features/auth/components/register-form";
 
 const Register = () => {
   return (

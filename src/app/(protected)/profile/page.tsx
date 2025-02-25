@@ -1,12 +1,12 @@
 import { auth } from "@/auth";
-import { Profile } from "@/features/profile/components/Profile";
-import { UserReservations } from "@/features/profile/components/UserReservation";
+import { Profile } from "@/features/profile/components/profile";
+import { UserBookings } from "@/features/profile/components/user-bookings";
 import { db } from "@/lib/prisma";
 
 const ProfilePage = async () => {
   const session = await auth();
   const userId = session?.user.id;
-  const userReservations = await db.reservations.findMany({
+  const userBookings = await db.bookings.findMany({
     where: {
       userId,
       status: "IN_PROGRESS",
@@ -18,7 +18,7 @@ const ProfilePage = async () => {
   return (
     <div className="py-10">
       <Profile />
-      <UserReservations data={userReservations} />
+      <UserBookings data={userBookings} />
     </div>
   );
 };
