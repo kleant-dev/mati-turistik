@@ -26,7 +26,7 @@ const CardWrapper = ({
   showBackLink,
 }: CardWrapperProps) => {
   return (
-    <div className="flex flex-col items-center py-16 px-6  bg-bgColor ">
+    <div className="flex flex-col items-center py-16 px-6 min-h-full bg-bgColor ">
       <div className="max-w-[440px] w-full">
         <Card className="w-full">
           <CardHeader>

@@ -16,7 +16,7 @@ const ProfilePage = async () => {
     },
   });
   return (
-    <div className="py-10">
+    <div className="py-10 min-h-full bg-bgColor">
       <Profile />
       <UserBookings data={userBookings} />
     </div>

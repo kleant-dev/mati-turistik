@@ -25,26 +25,26 @@ const responsive = {
 
 export const DestinationCarousel = () => {
   return (
-    <div className="">
+    <div>
       <Carousel
         showDots={true}
-        containerClass="carousel-container z-[1] "
+        containerClass="carousel-container z-[1] flex gap-4"
         ssr={true}
         responsive={responsive}
       >
         {edestinations.map(({ id, title, location, src }) => (
           <Card
             key={id}
-            className="bg-transparent text-white border-none mx-6 rounded-md flex flex-col items-center"
+            className="bg-transparent text-white border-none rounded-md flex flex-col items-center"
           >
-            <figure className="">
+            <figure>
               <CardHeader>
                 <Image
                   src={src}
                   alt={title}
-                  width={282}
-                  height={212}
-                  className="w-[282px] h-[212px] rounded-md"
+                  width={332}
+                  height={250}
+                  className="w-[332px] h-[250px] rounded-md"
                 />
               </CardHeader>
               <CardContent>

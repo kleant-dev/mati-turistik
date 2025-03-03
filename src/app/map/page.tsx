@@ -8,12 +8,12 @@ const Map = dynamic(
 
 const MapPage = () => {
   return (
-    <div className="bg-bgColor">
-      <h1 className="text-center text-xl text-gold pt-4 font-semibold">
+    <div className="bg-bgColor py-4 h-full">
+      <h1 className="text-center text-xl text-gold py-6 font-semibold">
         Tourist Map of Mat
       </h1>
-      <div className="px-2 pt-8   overflow-hidden">
-        <div className="h-[100vh] w-full">
+      <div className="h-[100vh] px-2 pt-8 w-full flex flex-col items-center justify-center">
+        <div className="w-[100%] md:w-[80%]">
           <Map />
         </div>
       </div>

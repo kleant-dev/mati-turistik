@@ -14,6 +14,7 @@ export const PasswordInput = ({
       <Input
         disabled={disabled}
         type={showPassword ? "text" : "password"}
+        autoComplete="current-password"
         placeholder="Your password goes here"
         {...field}
       />

@@ -43,7 +43,7 @@ export type WeatherSummaryResponseType = {
 
 export const Weather = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full flex flex-col items-center py-8 px-6 gap-6 bg-[#60B4E2]">
+    <div className="w-full min-h-full flex flex-col items-center py-8 px-6 gap-6 bg-[#60B4E2]">
       {children}
     </div>
   );

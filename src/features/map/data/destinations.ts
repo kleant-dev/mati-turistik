@@ -157,7 +157,7 @@ export const edestinations: destinationType[] = [
     type: "castle",
     title: "Petralba Castle",
     description:
-      "Located below the village of Guri i Bardhë and above the village of Fshat, it is a mountain ridge with a height of 778m. Barleti says about this castle, 'This is a city in Mat built on a mountain peak, but it fears nothing except hunger, no enemy force.'",
+      "Located below the village of Guri i Bardhë and above the village of Fshat, it is a mountain ridge with a height of 778m. Barleti says about this castle, 'This is a city in Mat built on a mountain peak, but it fears nothing except hunger, no enemy force.",
     position: [41.4746643, 20.0794016],
     image: "/images/kalajapetralbes.webp",
   },

@@ -42,7 +42,7 @@ const MotiPage = async () => {
   });
 
   return (
-    <div>
+    <div className="min-h-full w-full">
       <Weather>
         <WeatherSummary data={currentConditions} />
         <WeatherForecast data={filteredForecast} />

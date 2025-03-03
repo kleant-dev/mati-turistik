@@ -3,7 +3,7 @@ import { RegisterForm } from "@/features/auth/components/register-form";
 
 const Register = () => {
   return (
-    <div>
+    <div className="min-h-full">
       <CardWrapper
         backLinkHref="/auth/login"
         backLinkLabel="Already have an account ? Login"

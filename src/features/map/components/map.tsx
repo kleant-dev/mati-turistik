@@ -44,7 +44,7 @@ export const Map = () => {
       loadingControl={true}
       attributionControl={false}
       style={{ height: "100vh", width: "100%" }}
-      className="border-2 border-green-400 z-[1]"
+      className="z-[1] mt-[80px] mb-[120px] rounded-[30px]"
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -58,15 +58,15 @@ export const Map = () => {
             icon={icons[destination.type]}
             key={destination.title}
           >
-            <Popup>
+            <Popup className="z-[600]">
               <Image
                 src={destination.image}
                 alt={destination.title}
                 width={300}
                 height={80}
               />
-              <p className="text-center font-semibold ">{destination.title}</p>
-              <br /> {destination.description}
+              <p className="text-left font-bold text-xl">{destination.title}</p>
+              <p className="text-sm">{destination.description}</p>
             </Popup>
           </Marker>
         );

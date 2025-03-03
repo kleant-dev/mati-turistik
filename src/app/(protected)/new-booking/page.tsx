@@ -3,7 +3,7 @@ import { BookingForm } from "@/features/bookings/components/booking-form";
 
 const NewBookingPage = () => {
   return (
-    <div className="h-full">
+    <div className="min-h-full">
       <CardWrapper
         backLinkHref="/auth/register"
         backLinkLabel="Don't have an account ? Register"

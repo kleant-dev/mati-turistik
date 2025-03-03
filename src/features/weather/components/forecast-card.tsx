@@ -23,16 +23,18 @@ export const ForecastCard = ({
     weekday: "long",
   });
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-center">{capitalize(dayOfWeek)}</CardTitle>
+    <Card className="flex flex-col">
+      <CardHeader className="justify-start">
+        <CardTitle className="text-center mb-2">
+          {capitalize(dayOfWeek)}
+        </CardTitle>
       </CardHeader>
-      <CardContent className="flex items-base justify-around px-10">
-        <div className="flex flex-col items-center gap-2">
+      <CardContent className="flex items-base justify-around items-center">
+        <div className="mt-[-25px] flex flex-col items-center gap-2">
           <p>{capitalize(description)}</p>
           <Image src={iconSrc} alt={description} width={60} height={60} />
         </div>
-        <div className="self-center flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="flex font-semibold">
             {temp}
             <span className="font-normal ml-[2px] mr-[10px]">°C</span>

@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { Typewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -10,7 +7,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="h-[600px] w-full relative flex pt-[60px] justify-center"
+      className="h-[600px] w-full bg-cover relative flex pt-[60px] justify-center "
       style={{
         backgroundImage: "url(/images/background.jpg)",
         backgroundPosition: "bottom",
@@ -27,11 +24,7 @@ export const HeroSection = () => {
         />
         <div className="min-h-[60px] flex items-center justify-center w-full">
           <h1 className="text-gold text-4xl font-sirin">
-            <Typewriter
-              words={["Ready for  adventure?"]}
-              cursorBlinking
-              typeSpeed={35}
-            />
+            Ready for adventure?
           </h1>
         </div>
         <div className="w-[419px] h-[156px] text-center text-[#e6e6e6] text-2xl font-normal font-['Alata']">
