@@ -74,7 +74,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <PasswordInput au disabled={isPending} {...field} />
+                <PasswordInput disabled={isPending} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
